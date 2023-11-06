@@ -25,24 +25,12 @@ class WeatherDataType extends AbstractType
                 'html5' => true,
             ])
             ->add('temperatureInCelsius', NumberType::class, [
-                'attr' => [
-                    'min' => -30,
-                    'max' => 50,
-                ],
                 'html5' => true,
             ])
             ->add('humidity', NumberType::class, [
-                'attr' => [
-                    'min' => 0,
-                    'max' => 100,
-                ],
                 'html5' => true,
             ])
             ->add('pressure', NumberType::class, [
-                'attr' => [
-                    'min' => 900,
-                    'max' => 1100,
-                ],
                 'html5' => true,
             ])
             ->add('city', EntityType::class, [

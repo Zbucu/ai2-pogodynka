@@ -55,7 +55,9 @@ class WeatherDataController extends AbstractController
     #[Route('/{id}/edit', name: 'app_weather_data_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, WeatherData $weatherDatum, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(WeatherDataType::class, $weatherDatum);
+        $form = $this->createForm(WeatherDataType::class, $weatherDatum, [
+            'validation_groups' => 'create',
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

@@ -55,7 +55,9 @@ class CityController extends AbstractController
     #[Route('/{id}/edit', name: 'app_city_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, City $city, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(CityType::class, $city);
+        $form = $this->createForm(CityType::class, $city, [
+            'validation_groups' => 'edit',
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
