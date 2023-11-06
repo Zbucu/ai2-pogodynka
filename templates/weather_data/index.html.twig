@@ -27,8 +27,12 @@
                 <td>{{ weather_datum.humidity }}</td>
                 <td>{{ weather_datum.pressure }}</td>
                 <td>
+                    {% if is_granted('ROLE_WEATHER_DATA_SHOW') %}
                     <a href="{{ path('app_weather_data_show', {'id': weather_datum.id}) }}">show</a>
+                    {% endif %}
+                    {% if is_granted('ROLE_WEATHER_DATA_EDIT') %}
                     <a href="{{ path('app_weather_data_edit', {'id': weather_datum.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -38,6 +42,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {% if is_granted('ROLE_WEATHER_DATA_NEW') %}
     <a href="{{ path('app_weather_data_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}
