@@ -1,0 +1,12 @@
+{
+    "name": "{{ name }}",
+    "country_code": "{{ countryCode }}",
+    "weather_data": [
+        {% for weatherSingleData in weatherData %}
+        {
+            "date": "{{ weatherSingleData.date | date('Y-m-d') }}",
+            "temperature_in_celsius": "{{ weatherSingleData.temperatureInCelsius }}"
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ]
+}

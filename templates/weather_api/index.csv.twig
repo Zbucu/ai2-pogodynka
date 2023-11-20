@@ -1,0 +1,4 @@
+name,country_code,date,temperature_in_celsius
+{% for weatherSingleData in weatherData %}
+{{ name }},{{ countryCode }},{{ weatherSingleData.date | date('Y-m-d') }},{{ weatherSingleData.temperatureInCelsius }}
+{% endfor %}

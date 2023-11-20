@@ -109,4 +109,9 @@ class WeatherData
 
         return $this;
     }
+
+    public function getTemperatureInFahrenheit(): ?string
+    {
+        return $this->temperatureInCelsius * 9 / 5 + 32;
+    }
 }
